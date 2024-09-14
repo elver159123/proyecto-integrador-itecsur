@@ -26,6 +26,7 @@ def detectar_idioma(palabra):
 
 def realizar_traduccion():
     palabra = input("Introduce la palabra para traducir: ").strip()
+    #return palabra
     
     if not palabra:
         print("Error: No has ingresado la palabra para traducir.")
@@ -65,8 +66,21 @@ while True:
             print("1. Sí")
             print("2. No")
             seleccion = input("Selecciona una opción (1/2): ")
+            print(diccionario)
             if seleccion == '1':
                 realizar_traduccion()
+                
+                palabra=palabra
+
+                print("¿Desea escuchar la traducción?")
+                print("1. Sí")
+                print("2. No")
+                selec = input("Selecciona una opción (1/2): ")
+                if selec == '1':
+                    print (palabra)
+                    escuchar_traduccion(palabra)
+                elif selec == '2':
+                    continue  
             elif seleccion == '2':
                 break
     elif opcion == '2':
