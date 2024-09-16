@@ -24,7 +24,7 @@ def detectar_idioma(palabra):
     
     return None, None, None
 
-def realizar_traduccion():
+#def realizar_traduccion():
     palabra = input("Introduce la palabra para traducir: ").strip()
     #return palabra
     
@@ -41,6 +41,24 @@ def realizar_traduccion():
     else:
         print("La palabra que ingresaste no se encuentra en nuestra base de datos.")
 
+def realizar_traduccion():
+    global palabra
+    palabra = input("Introduce la palabra para traducir: ").strip()
+    #return palabra
+    
+    if not palabra:
+        print("Error: No has ingresado la palabra para traducir.")
+        return
+    
+    idioma_origen, idioma_destino, traduccion = detectar_idioma(palabra)
+    
+    if traduccion:
+        if isinstance(traduccion, list):
+            traduccion = ', '.join(traduccion)
+        print(f"La palabra se ingresó en {idioma_origen} y se tradujo a {idioma_destino}: {traduccion}")
+    else:
+        print("La palabra que ingresaste no se encuentra en nuestra base de datos.")
+        
 def mostrar_palabras_disponibles():
     palabras = "\n".join(sorted(diccionario.keys()))
     print(f"Palabras en Kichwa disponibles para traducir:\n\n{palabras}")
