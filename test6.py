@@ -84,7 +84,7 @@ while True:
             print("1. Sí")
             print("2. No")
             seleccion = input("Selecciona una opción (1/2): ")
-            print(diccionario)
+            
             if seleccion == '1':
                 realizar_traduccion()
                 
